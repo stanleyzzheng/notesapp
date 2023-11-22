@@ -20,6 +20,7 @@ pipeline{
             steps {
                 echo 'Deliver....'
                 sh '''
+                ls -ltra
                 echo "doing delivery stuff.."
                 '''
             }
