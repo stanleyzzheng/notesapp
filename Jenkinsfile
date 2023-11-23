@@ -19,13 +19,14 @@ pipeline{
         }
         stage('Deliver') {
             steps {
-                echo 'Deliver....'
-                sh '''
-                mvn clean package
-                ls -ltra
-                nohup java -jar target/firstspringproject-0.0.1-SNAPSHOT.jar > output.log 2>&1 &
-                echo "doing delivery stuff.."
-                '''
+                sh 'echo "Deliver...."'
+ 
+                sh 'ls -ltra'
+                sh 'mvn clean package'
+                sh 'nohup java -jar target/firstspringproject-0.0.1-SNAPSHOT.jar > output.log 2>&1 &'
+
+                sh 'echo "doing delivery stuff.."'
+
             }
         }
     }
