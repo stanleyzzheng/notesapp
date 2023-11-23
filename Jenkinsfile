@@ -22,6 +22,7 @@ pipeline{
                 echo 'Deliver....'
                 sh '''
                 ls -ltra
+                mvn clean package
                 echo "doing delivery stuff.."
                 '''
             }
