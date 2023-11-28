@@ -9,6 +9,9 @@ pipeline{
                 '''
                 // git 'https://github.com/stanleyzzheng/notesapp'
                 sh 'mvn -B -DskipTests clean package'
+                    sh 'whoami'
+                sh 'pwd'
+                sh 'ls -la /path/to/directory'
             }
         }
         stage('Test') {
