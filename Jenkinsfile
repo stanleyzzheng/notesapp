@@ -7,6 +7,8 @@ pipeline{
                 sh '''
                 echo "doing build stuff.."
                 '''
+                git 'https://github.com/stanleyzzheng/notesapp'
+                sh 'mvn clean package'
             }
         }
         stage('Test') {
@@ -21,8 +23,8 @@ pipeline{
             steps {
                 sh 'echo "Deliver...."'
  
-                sh 'ls -ltra'
-                // sh 'mvn clean package'
+                // sh 'ls -ltra'
+
                 // sh 'nohup java -jar target/firstspringproject-0.0.1-SNAPSHOT.jar > output.log 2>&1 &'
 
                 sh 'echo "doing delivery stuff.."'
