@@ -7,7 +7,7 @@ pipeline{
                 sh '''
                 echo "doing build stuff.."
                 '''
-                git 'https://github.com/stanleyzzheng/notesapp'
+                // git 'https://github.com/stanleyzzheng/notesapp'
                 sh 'mvn clean package'
             }
         }
