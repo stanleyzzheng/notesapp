@@ -8,7 +8,7 @@ pipeline{
                 echo "doing build stuff.."
                 '''
                 // git 'https://github.com/stanleyzzheng/notesapp'
-                sh 'mvn clean package'
+                sh './mvnw clean package'
             }
         }
         stage('Test') {
