@@ -8,10 +8,10 @@ pipeline{
                 echo "doing build stuff.."
                 '''
                 // git 'https://github.com/stanleyzzheng/notesapp'
-                sh 'mvn -B -DskipTests clean package'
+                // sh 'mvn -B -DskipTests clean package'
                 sh 'whoami'
                 sh 'pwd'
-                sh 'ls -la pwd'
+                sh 'ls -la /var/lib/jenkins/workspace/my_first_build_pipeline'
             }
         }
         stage('Test') {
