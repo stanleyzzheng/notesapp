@@ -25,8 +25,8 @@ pipeline{
  
                 // sh 'ls -ltra'
 
-                sh 'java -jar target/firstspringproject-0.0.1-SNAPSHOT.jar > output.log 2>&1 &'
-
+                // sh 'java -jar target/firstspringproject-0.0.1-SNAPSHOT.jar > output.log 2>&1 &'
+                sh 'java -jar target/firstspringproject-0.0.1-SNAPSHOT.jar'
                 sh 'echo "doing delivery stuff.."'
 
             }
