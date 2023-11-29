@@ -27,13 +27,14 @@ pipeline{
                 sh 'echo "Deliver...."'
  
                 // sh 'ls -ltra'
-
-                sh 'nohup java -jar target/firstspringproject-0.0.1-SNAPSHOT.jar > output.log 2>&1 &'
+                withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
+                    sh 'nohup java -jar target/firstspringproject-0.0.1-SNAPSHOT.jar > output.log 2>&1 &'
+                }
                 // sh 'java -jar target/firstspringproject-0.0.1-SNAPSHOT.jar'
                 sh 'echo "doing delivery stuff.."'
-                sh 'whoami'
-                sh 'pwd'
-                sh 'ls -la /var/lib/jenkins/workspace/my_first_build_pipeline'
+                // sh 'whoami'
+                // sh 'pwd'
+                // sh 'ls -la /var/lib/jenkins/workspace/my_first_build_pipeline'
             }
         }
     }
