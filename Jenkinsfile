@@ -20,6 +20,13 @@ pipeline{
                 sh '''
                 echo "doing test stuff.."
                 '''
+                sh 'mvn test'
+
+            }
+            post {
+                always {
+                    junit '**/target/surfire-reports/TEST-*.xml'
+                }
             }
         }
         stage('Deliver') {
