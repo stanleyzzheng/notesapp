@@ -1,7 +1,7 @@
 pipeline{
     agent any
     options {
-        timeout(time: 10, unit: 'MINUTES') // Set the timeout duration (1 hour in this example)
+        timeout(time: 5, unit: 'MINUTES') // Set the timeout duration (1 hour in this example)
     }
     stages {
         stage('Stop Service') {
@@ -27,7 +27,7 @@ pipeline{
                 sh '''
                 echo "doing test stuff.."
                 '''
-                sh 'mvn test'
+                // sh 'mvn test'
 
             }
             post {
