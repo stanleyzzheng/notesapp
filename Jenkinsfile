@@ -27,7 +27,7 @@ pipeline{
                 sh '''
                 echo "doing test stuff.."
                 '''
-                // sh 'mvn test'
+                sh 'mvn test'
 
             }
             // post {
