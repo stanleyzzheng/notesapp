@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'docker-agent-jdk-21'
+            label 'docker-agent-alpine'
         }
     }
     // options {
