@@ -1,5 +1,9 @@
 pipeline{
-    agent any
+    agent{
+        node{
+            label 'docker-agent-alpine'
+        }
+    }
     options {
         timeout(time: 5, unit: 'MINUTES') // Set the timeout duration (1 hour in this example)
     }
@@ -7,7 +11,7 @@ pipeline{
         stage('Stop Service') {
             steps {
                 script {
-                    sh 'sudo systemctl stop backend'
+                    // sh 'sudo systemctl stop backend'
                 }
             }
         }
@@ -38,12 +42,12 @@ pipeline{
         }
         stage('Deliver') {
             steps {
-                sh 'echo "Deliver...."'
+                // sh 'echo "Deliver...."'
  
                 // withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
                 //     sh 'nohup java -jar target/firstspringproject-0.0.1-SNAPSHOT.jar > output.log 2>&1 &'
                 // }
-                sh 'sudo systemctl start backend'
+                // sh 'sudo systemctl start backend'
 
                 sh 'echo "doing delivery stuff.."'
 
