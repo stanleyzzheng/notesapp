@@ -4,9 +4,9 @@ pipeline {
             label 'docker-agent-jdk-21'
         }
     }
-    options {
-        timeout(time: 5, unit: 'MINUTES') // Set the timeout duration (1 hour in this example)
-    }
+    // options {
+    //     timeout(time: 5, unit: 'MINUTES') // Set the timeout duration (1 hour in this example)
+    // }
     stages {
         stage('Stop Service') {
             steps {
