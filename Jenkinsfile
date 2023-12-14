@@ -20,7 +20,7 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                echo "doing build stuff.."
+                echo "doing build stuff. ."
                 '''
                 sh 'mvn -B -DskipTests clean package'
 
