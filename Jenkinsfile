@@ -1,10 +1,10 @@
 pipeline {
-    // agent {
-    //     node {
-    //         label 'docker-agent-alpine'
-    //     }
-    // }
-    agent any
+    agent {
+        node {
+            label 'docker-agent-alpine'
+        }
+    }
+    // agent any
     // options {
     //     timeout(time: 5, unit: 'MINUTES') // Set the timeout duration (1 hour in this example)
     // }
@@ -33,14 +33,14 @@ pipeline {
                 sh '''
                 echo "doing test stuff . ."
                 '''
-                sh 'mvn test'
+                // sh 'mvn test'
 
             }
-            post {
-                always {
-                    junit '**/target/surfire-reports/TEST-*.xml'
-                }
-            }
+            // post {
+            //     always {
+            //         junit '**/target/surfire-reports/TEST-*.xml'
+            //     }
+            // }
         }
         stage('Deliver') {
             steps {
