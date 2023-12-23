@@ -1,6 +1,7 @@
 pipeline {
     agent {
         node {
+            def mvnHome = tool 'Maven'
             label 'docker-agent-alpine'
         }
     }
@@ -23,7 +24,7 @@ pipeline {
                 sh '''
                 echo "doing build stuff. ."
                 '''
-                sh 'mvn -B -DskipTests clean package'
+                // sh 'mvn -B -DskipTests clean package'
 
             }
         }
@@ -32,6 +33,7 @@ pipeline {
                 echo "Testing.."
                 sh '''
                 echo "doing test stuff . ."
+                echo "${mvnHome}"
                 '''
                 // sh 'mvn test'
 
