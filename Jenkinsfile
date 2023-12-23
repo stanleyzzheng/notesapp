@@ -1,7 +1,8 @@
 pipeline {
+    def mvnHome = tool 'Maven'
+
     agent {
         node {
-            def mvnHome = tool 'Maven'
             label 'docker-agent-alpine'
         }
     }
