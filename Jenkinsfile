@@ -24,7 +24,7 @@ pipeline {
                 sh '''
                 echo "doing build stuff. ."
                 '''
-                sh './mvnw -B -DskipTests clean package'
+                sh 'mvn -B -DskipTests clean package'
 
             }
         }
@@ -35,7 +35,7 @@ pipeline {
                 echo "doing test stuff . ."
                 echo "${mvnHome}"
                 '''
-                sh './mvnw test'
+                sh 'mvn test'
 
             }
             post {
