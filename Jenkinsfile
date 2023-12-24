@@ -1,5 +1,4 @@
 pipeline {
-    def mvnHome = tool 'Maven'
 
     agent {
         node {
