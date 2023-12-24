@@ -1,11 +1,11 @@
 pipeline {
 
-    agent {
-        node {
-            label 'docker-agent-alpine'
-        }
-    }
-    // agent any
+    // agent {
+    //     node {
+    //         label 'docker-agent-alpine'
+    //     }
+    // }
+    agent any
     // options {
     //     timeout(time: 5, unit: 'MINUTES') // Set the timeout duration (1 hour in this example)
     // }
@@ -24,7 +24,7 @@ pipeline {
                 sh '''
                 echo "doing build stuff. ."
                 '''
-                // sh 'mvn -B -DskipTests clean package'
+                sh 'mvn -B -DskipTests clean package'
 
             }
         }
@@ -35,7 +35,7 @@ pipeline {
                 echo "doing test stuff . ."
                 echo "${mvnHome}"
                 '''
-                // sh 'mvn test'
+                sh 'mvn test'
 
             }
             // post {
