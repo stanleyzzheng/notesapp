@@ -19,6 +19,8 @@ pipeline {
         }
         stage('Build') {
             steps {
+                script{
+
                 def mvnHome = tool 'Maven 3.8.4'
                 def mvnCommand = "${mvnHome}/bin/mvn"
                 echo "Building.."
@@ -26,6 +28,7 @@ pipeline {
                 echo "doing build stuff. ."
                 '''
                 sh "${mvnCommand} clean install"
+                }
 
             }
         }
