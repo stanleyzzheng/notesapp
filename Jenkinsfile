@@ -1,10 +1,9 @@
 pipeline {
 
-    // agent {
-    //     node {
-    //         label 'docker-agent-alpine'
-    //     }
-    // }
+    tools {
+        // Define the Maven tool with the specified installation name and home directory
+        maven 'Maven 3.8.4'
+    }
     agent any
     // options {
     //     timeout(time: 5, unit: 'MINUTES') // Set the timeout duration (1 hour in this example)
@@ -20,11 +19,13 @@ pipeline {
         }
         stage('Build') {
             steps {
+                def mvnHome = tool 'Maven 3.8.4'
+                def mvnCommand = "${mvnHome}/bin/mvn"
                 echo "Building.."
                 sh '''
                 echo "doing build stuff. ."
                 '''
-                sh 'mvn -B -DskipTests clean package'
+                sh "${mvnCommand} clean install"
 
             }
         }
@@ -33,9 +34,7 @@ pipeline {
                 echo "Testing.."
                 sh '''
                 echo "doing test stuff . ."
-                echo "${mvnHome}"
                 '''
-                sh 'mvn test'
 
             }
             post {
