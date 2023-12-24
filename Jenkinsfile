@@ -24,7 +24,7 @@ pipeline {
                 sh '''
                 echo "doing build stuff. ."
                 '''
-                sh 'mvn -B -DskipTests clean package'
+                sh './mvnw -B -DskipTests clean package'
 
             }
         }
@@ -35,14 +35,14 @@ pipeline {
                 echo "doing test stuff . ."
                 echo "${mvnHome}"
                 '''
-                sh 'mvn test'
+                sh './mvnw test'
 
             }
-            // post {
-            //     always {
-            //         junit '**/target/surfire-reports/TEST-*.xml'
-            //     }
-            // }
+            post {
+                always {
+                    junit '**/target/surfire-reports/TEST-*.xml'
+                }
+            }
         }
         stage('Deliver') {
             steps {
