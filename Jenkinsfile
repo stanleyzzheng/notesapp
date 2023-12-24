@@ -3,6 +3,7 @@ pipeline {
     tools {
         // Define the Maven tool with the specified installation name and home directory
         maven 'Maven 3.8.4'
+        jdk 'myJDK'
     }
     agent any
     // options {
