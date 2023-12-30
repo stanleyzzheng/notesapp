@@ -12,7 +12,7 @@ pipeline {
         stage('Stop Service') {
             steps {
                 script {
-                    // sh 'sudo systemctl stop backend'
+                    sh 'sudo systemctl stop backend'
                     echo 'stopping service...'
                 }
             }
@@ -50,7 +50,7 @@ pipeline {
                 // withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
                 //     sh 'nohup java -jar target/firstspringproject-0.0.1-SNAPSHOT.jar > output.log 2>&1 &'
                 // }
-                // sh 'sudo systemctl start backend'
+                sh 'sudo systemctl start backend'
 
                 sh 'echo "doing delivery stuff.."'
             }
