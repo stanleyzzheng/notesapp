@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     // sh 'sudo systemctl stop backend'
-                    echo 'stopping service. . .'
+                    echo 'stopping service...'
                 }
             }
         }
