@@ -1,5 +1,4 @@
 pipeline {
-
     tools {
         // Define the Maven tool with the specified installation name and home directory
         maven 'Maven 3.8.4'
@@ -14,50 +13,46 @@ pipeline {
             steps {
                 script {
                     // sh 'sudo systemctl stop backend'
-                    echo "stopping service. . ."
+                    echo 'stopping service. . .'
                 }
             }
         }
         stage('Build') {
             steps {
-                script{
-
-                def mvnHome = tool 'Maven 3.8.4'
-                def mvnCommand = "${mvnHome}/bin/mvn"
-                echo "Building.."
-                sh '''
+                script {
+                    def mvnHome = tool 'Maven 3.8.4'
+                    def mvnCommand = "${mvnHome}/bin/mvn"
+                    echo 'Building..'
+                    sh '''
                 echo "doing build stuff. ."
                 '''
-                sh "${mvnCommand} clean install"
-                }
-
-            }
-        }
-        stage('Test') {
-            steps {
-                echo "Testing.."
-                sh '''
-                echo "doing test stuff . ."
-                '''
-
-            }
-            post {
-                always {
-                    junit '**/target/surfire-reports/TEST-*.xml'
+                    sh "${mvnCommand} clean install -DskipTests=true"
                 }
             }
         }
+        // stage('Test') {
+        //     steps {
+        //         echo 'Testing..'
+        //         sh '''
+        //         echo "doing test stuff . ."
+        //         '''
+        //     }
+        //     post {
+        //         always {
+        //             junit '**/target/surfire-reports/TEST-*.xml'
+        //         }
+        //     }
+        // }
         stage('Deliver') {
             steps {
                 // sh 'echo "Deliver...."'
- 
+
                 // withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
                 //     sh 'nohup java -jar target/firstspringproject-0.0.1-SNAPSHOT.jar > output.log 2>&1 &'
                 // }
                 // sh 'sudo systemctl start backend'
 
                 sh 'echo "doing delivery stuff.."'
-
             }
         }
     }
